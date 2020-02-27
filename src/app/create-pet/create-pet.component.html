@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Create a new Pet</mat-card-title>
+  <mat-card-content>
+    <input placeholder="Pet Name"
+      class="control"
+      [(ngModel)]="petName" />
+    <select placeholder="Pet Category"
+      [(ngModel)]="petCategory"
+      class="control">
+      <option *ngFor="let option of categories"
+        [value]="option.id">{{ option.name }}</option>
+    </select>
+    <select placeholder="Pet Status"
+      [(ngModel)]="petStatus"
+      class="control">
+      <option *ngFor="let option of statuses"
+        [value]="option.id">{{ option.status }}</option>
+    </select>
+    <button matButton
+      (click)="onSubmit()"
+      class="control">Submit</button>
+  </mat-card-content>
+</mat-card>

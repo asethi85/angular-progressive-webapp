@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title>List</mat-card-title>
+  <mat-card-subtitle>
+    Select the status to search for
+    <mat-checkbox [(ngModel)]="includeAvailable"
+      (change)="getPetList()">Available</mat-checkbox>
+    <mat-checkbox [(ngModel)]="includePending"
+      (change)="getPetList()">Pending</mat-checkbox>
+    <mat-checkbox [(ngModel)]="includeSold"
+      (change)="getPetList()">Sold</mat-checkbox>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <table mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell
+          *matHeaderCellDef> Name </th>
+        <td mat-cell
+          *matCellDef="let element"> {{element?.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell
+          *matHeaderCellDef> Category </th>
+        <td mat-cell
+          *matCellDef="let element"> {{element?.category?.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell
+          *matHeaderCellDef> Status </th>
+        <td mat-cell
+          *matCellDef="let element"> {{element?.status}} </td>
+      </ng-container>
+      <tr mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>
