@@ -45,7 +45,7 @@ import { PetDraftComponent } from './pet-draft/pet-draft.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ServiceWorkerModule.register('assets/service-worker.js', { enabled: false })
+    ServiceWorkerModule.register('/service-worker.js', { enabled: true })
   ],
   providers: [RouteGuardService, DataFacadeService, DexieService],
   bootstrap: [AppComponent]

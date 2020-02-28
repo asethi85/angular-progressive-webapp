@@ -9,11 +9,12 @@ import { from } from 'rxjs';
 @Injectable()
 export class DataFacadeService {
   isOnline: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  private isCachingEnabled = false;
+  private isCachingEnabled = true;
 
   constructor(private httpClient: HttpClient, private dexie: DexieService) {
     window.addEventListener('online', (event) => this.isOnline.next(event.type === 'online'));
     window.addEventListener('offline', (event) => this.isOnline.next(event.type === 'online'));
+    this.getPetList('').subscribe(() => this.isOnline.next(true), () => this.isOnline.next(false));
   }
 
   getAllPetDrafts(): Observable<IPet[]> {

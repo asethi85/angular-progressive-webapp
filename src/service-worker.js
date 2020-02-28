@@ -1,4 +1,4 @@
-const CACHE_NAME = 'angular-pwa-cache-v2';
+const CACHE_NAME = 'angular-pwa-cache-v1';
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
